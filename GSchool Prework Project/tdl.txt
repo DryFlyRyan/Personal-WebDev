@@ -1,0 +1,72 @@
+Design To Do List
+
+Site Structure:
+
+	Complete site layout format
+		clearfix
+		position all divs
+			Position Main Divs
+				NavBar
+				Header
+				Content window
+				Right stripe?
+			Position secondary content divs
+		Make scalable
+		Make Decision on using Flexbox
+	Images
+		Format Images
+		Format struc for images
+		Find images
+		Find gifs
+	Buttons
+		Add buttons on HTML
+	Responsive Format
+		DL chrome plugin for screen sizes
+
+Content:
+	Create Content Sections
+		Past
+			History
+				Hometown
+				Montana
+				Employment
+			Hobbies
+				Fly Fishing
+				Homebrewing
+				etc.
+			Dogs
+
+		Future
+			Plans
+				Coding
+				Business
+				Montana
+
+Styling: 
+	Font
+		Decide on fonts
+			Install Fonts
+		Add Classes/Fonts
+	Color
+		Decide on colors
+			Look into color layout tools
+		Implement Colors
+
+JS:
+	Install JS on index, etc.
+	Add JS code for buttons
+
+
+Testing:
+	Spellcheck!
+	Test on all browsers
+		Test Responsiveness
+		Test Images
+		Test GIFs
+		Test Video if applic.
+	Test Responsiveness
+		Browser Test
+		Device test, if poss
+	Test JS/JQ
+	Run through W3C validator
+
