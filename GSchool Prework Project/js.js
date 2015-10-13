@@ -8,6 +8,10 @@ $(document).ready(function() {
 		$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
 	})
 
+	$('.nav-icon').on('click', function () {
+		$(this).toggleClass('nav-icon-clicked')
+	})
+
 	// GRAYSCALE ON HOVER
 
 	$('.anchor-button').hover(function () {
