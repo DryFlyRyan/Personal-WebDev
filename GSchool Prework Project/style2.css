@@ -88,14 +88,17 @@ body, html {
 	border: 2px solid white;
 }
 
-.button h1 {
+.anchor-button h1 {
 	color: white;
+	text-align: center;
 }
 
 /* ADDED CLASSES */
 
 
 .grayscale-blur {
+	opacity: 0.3;
+
 	filter: blur(3px) grayscale(100%);
 	-webkit-filter: blur(3px) grayscale(100%);
 	-moz-filter: blur(3px) grayscale(100%);
