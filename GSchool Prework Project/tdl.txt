@@ -3,28 +3,26 @@ Design To Do List
 Site Structure:
 
 	Complete site layout format
-		clearfix
+		/*clearfix*/
 		position all divs
 			Position Main Divs
 				NavBar
-				Header
 				Content window
-				Right stripe?
 			Position secondary content divs
 		Make scalable
-		Make Decision on using Flexbox
+		/*Make Decision on using Flexbox*/
 	Images
 		Format Images
 		Format struc for images
 		Find images
 		Find gifs
 	Buttons
-		Add buttons on HTML
+		/*Add buttons on HTML*/
 	Responsive Format
-		DL chrome plugin for screen sizes
+		/*DL chrome plugin for screen sizes*/
 
 Content:
-	Create Content Sections
+	/*Create Content Sections*/
 		Past
 			History
 				Hometown
@@ -42,7 +40,7 @@ Content:
 				Business
 				Montana
 
-Styling: 
+Styling:
 	Font
 		Decide on fonts
 			Install Fonts
@@ -53,8 +51,8 @@ Styling:
 		Implement Colors
 
 JS:
-	Install JS on index, etc.
-	Add JS code for buttons
+	/*Install JS on index, etc.
+	Add JS code for buttons*/
 
 
 Testing:
@@ -69,4 +67,3 @@ Testing:
 		Device test, if poss
 	Test JS/JQ
 	Run through W3C validator
-

@@ -8,9 +8,22 @@ $(document).ready(function() {
 		$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
 	})
 
-	$('.nav-icon').on('click', function () {
-		$(this).toggleClass('nav-icon-clicked')
+$('.nav-icon')
+	.on('click', function () {
+		$(this).toggleClass('nav-icon-clicked');
+		$('.navbar').toggleClass('navbar-shown');
+		// $('.background-container').toggleClass('grayscale-blur');
+		$(this).removeClass('nav-icon-hover');
 	})
+	.on('mouseenter', function () {
+		if ($(this).hasClass('nav-icon-clicked') === false) {
+			$(this).addClass('nav-icon-hover');
+		}
+	})
+	.on('mouseleave', function () {
+		$(this).removeClass('nav-icon-hover');
+	})
+
 
 	// GRAYSCALE ON HOVER
 
