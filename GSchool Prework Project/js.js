@@ -3,7 +3,6 @@ $(document).ready(function() {
 		alert("Hello World!");
 	});*/
 
-
 	$('next').on('click', function () {
 		$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
 	})
@@ -24,6 +23,27 @@ $('.nav-icon')
 		$(this).removeClass('nav-icon-hover');
 	})
 
+$('#map-icon').on('click', function () {
+	$('.bottom-list-past').slideToggle(200);
+})
+
+
+$('#road-icon').on('click', function () {
+	$('.bottom-list-future').slideToggle(200);
+})
+
+$('a[href^="#"]').on('click', function (e) {
+	e.preventDefault();
+
+	var target = this.hash;
+	var $target = $(target);
+
+	$('html, body').stop().animate({
+		'scrollTop': $target.offset().top
+	}, 500, 'swing', function () {
+		window.location.hash = target;
+	});
+});
 
 	// GRAYSCALE ON HOVER
 
