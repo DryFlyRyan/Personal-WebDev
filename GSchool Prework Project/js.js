@@ -1,17 +1,25 @@
+function fadedOut() {
+	$('.hidden-start').fadeOut(50);
+};
+
 $(document).ready(function() {
 	/*$(window).each(function () {
 		alert("Hello World!");
 	});*/
+window.setTimeout('fadedOut();', 50);
+
+
 
 	$('next').on('click', function () {
 		$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
 	})
 
+	// NAVIGATION AND NAVICON STYLING AND ANIMATIONS
+
 $('.nav-icon')
 	.on('click', function () {
 		$(this).toggleClass('nav-icon-clicked');
 		$('.navbar').toggleClass('navbar-shown');
-		// $('.background-container').toggleClass('grayscale-blur');
 		$(this).removeClass('nav-icon-hover');
 	})
 	.on('mouseenter', function () {
@@ -45,18 +53,49 @@ $('a[href^="#"]').on('click', function (e) {
 	});
 });
 
-	// GRAYSCALE ON HOVER
+	// GRAYSCALE ON HOVER + BUTTON STYLING AND FADES
 
-	$('.anchor-button').hover(function () {
-		$('a').closest('section').find('.background-container').addClass('grayscale-blur');
-	}, function () {
-		$('a').closest('section').find('.background-container').removeClass('grayscale-blur');
+	$('.page-button').hover(function () {
+		if ($(this).hasClass('faded') === false) {
+			$('a').closest('section').find('.background-container').toggleClass('grayscale-blur');
+		}
+		var icon = $(this).find('i');
+		if ($(this).is('#home-button')) {
+			icon.toggleClass('button-chocolate');
+		} else if ($(this).is('#binoculars-button')) {
+			icon.toggleClass('button-red');
+		} else if ($(this).is('#paw-button')) {
+			icon.toggleClass('button-gold');
+		} else if ($(this).is('#tree-button')) {
+			icon.toggleClass('button-green');
+		} else if ($(this).is('#twitter, #linkedin')) {
+			icon.toggleClass('button-blue');
+		} else if ($(this).is('#github')) {
+			$(this).toggleClass('contact-button-white');
+			icon.toggleClass('github-transition');
+		}
 	});
+
+$('.page-button').on('click', function () {
+	$('a').closest('section').find('background-container').addClass('grayscale-blur');
+	$(this).animate( 400, function () {
+		$(this).fadeOut('slow', function () {
+			$(this).closest('section').find('.hidden-start').toggleClass('.hidden-start').fadeIn();
+		})
+		$(this).addClass('faded');
+		$('a').closest('section').find('background-container').addClass('grayscale-blur');
+
+	})
+// THIS IS BEING TROUBLESOME
+	$(this).promise().done(function() {
+		$(this).addClass('faded');
+	})
+})
 
 	$('section').height($(window).height());
 	$('section').first().addClass('active');
 
-	/*$(window).closest('section').addClass('active').siblings().removeClass('active');*/
+// SCROLLING ANIMATION
 
 	$(document).bind('mousewheel DOMMouseScroll', function (event) {
 		event.preventDefault(); // This works
@@ -66,6 +105,8 @@ $('a[href^="#"]').on('click', function (e) {
 		if(delta < 0) {
 			next = active.next();
 			if (next.length) {
+				active.find('background-container').removeClass('grayscale-blur')
+							.siblings().find('background-container').removeClass('grayscale-blur');
 				var time = setTimeout(function () {
 					$('html, body').animate({
 						scrollTop: next.offset().top
@@ -78,6 +119,8 @@ $('a[href^="#"]').on('click', function (e) {
 		} else if (delta > 0) {
 			prev = active.prev();
 			if (prev.length) {
+				active.find('background-container').removeClass('grayscale-blur')
+							.siblings().find('background-container').removeClass('grayscale-blur');
 				var time = setTimeout(function () {
 					$('html, body').animate({
 						scrollTop: prev.offset().top
