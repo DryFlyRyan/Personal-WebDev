@@ -17,8 +17,11 @@ window.setTimeout('fadedOut();', 50);
 	});*/
 window.setTimeout('fadedOut();', 50);
 
+<<<<<<< HEAD
 	//
 	//
+=======
+>>>>>>> reverted-testing-branch
 	// $('next').on('click', function () {
 	// 	$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
 	// })
@@ -113,7 +116,16 @@ $('.page-button').on('click', function () {
 	$('section').first().addClass('active');
 
 // SCROLLING ANIMATION
+	var scrollTimer = null;
+	var lastScroll = 0;
 
+	$(document).on('mousewheel DOMMouseScroll', function (event) {
+		event.preventDefault();
+
+		var minScrollTime = 100;
+		var now = new Date().getTime();
+
+<<<<<<< HEAD
 	// $(document).bind('mousewheel DOMMouseScroll', function (event) {
 	// 	event.preventDefault();
 	// 	var active = $('section.active');
@@ -225,4 +237,50 @@ $('.page-button').on('click', function () {
 
 =======
 >>>>>>> parent of cac2a0c... Merge Branch
+=======
+		var active = $('section.active');
+		var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
+
+		if (!scrollTimer) {
+			if((now - lastScroll) > (minScrollTime * 3)) {
+				lastScroll = now;
+					if(delta < 0) {
+						next = active.next();
+							if (next.length) {
+								var time = setTimeout(function () {
+									$('html, body').animate({
+										scrollTop: next.offset().top
+									},400);
+
+									next.addClass('active')
+										.siblings().removeClass('active');
+										clearTimeout(time);
+
+									}, 500);
+
+								}
+					} else if (delta > 0) {
+						prev = active.prev();
+							if (prev.length) {
+								var time = setTimeout(function () {
+									$('html, body').animate({
+										scrollTop: prev.offset().top
+									},400);
+
+									prev.addClass('active')
+									.siblings().removeClass('active');
+									clearTimeout(time);
+
+									}, 500);
+								}
+							}
+						}
+			scrollTimer = setTimeout(function() {
+			scrollTimer = null;
+			lastScroll = new Date().getTime();
+			}, minScrollTime);
+
+			}
+	});
+>>>>>>> reverted-testing-branch
 });
