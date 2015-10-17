@@ -10,9 +10,9 @@ window.setTimeout('fadedOut();', 50);
 
 
 
-	$('next').on('click', function () {
-		$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
-	})
+	// $('next').on('click', function () {
+	// 	$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
+	// })
 
 	// NAVIGATION AND NAVICON STYLING AND ANIMATIONS
 
@@ -96,42 +96,57 @@ $('.page-button').on('click', function () {
 	$('section').first().addClass('active');
 
 // SCROLLING ANIMATION
+	var scrollTimer = null;
+	var lastScroll = 0;
 
-	$(document).bind('mousewheel DOMMouseScroll', function (event) {
-		event.preventDefault(); // This works
+	$(document).on('mousewheel DOMMouseScroll', function (event) {
+		event.preventDefault();
+
+		var minScrollTime = 100;
+		var now = new Date().getTime();
+
 		var active = $('section.active');
 		var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
-		/*alert(event.originalEvent.weelDelta);*/
-		if(delta < 0) {
-			next = active.next();
-			if (next.length) {
-				active.find('background-container').removeClass('grayscale-blur')
-							.siblings().find('background-container').removeClass('grayscale-blur');
-				var time = setTimeout(function () {
-					$('html, body').animate({
-						scrollTop: next.offset().top
-					}, 400);
-				next.addClass('active')
-					.siblings().removeClass('active');
-					clearTimeout(time);
-				}, 150);
-			}
-		} else if (delta > 0) {
-			prev = active.prev();
-			if (prev.length) {
-				active.find('background-container').removeClass('grayscale-blur')
-							.siblings().find('background-container').removeClass('grayscale-blur');
-				var time = setTimeout(function () {
-					$('html, body').animate({
-						scrollTop: prev.offset().top
-					}, 400);
 
-				prev.addClass('active')
-					.siblings().removeClass('active');
+		if (!scrollTimer) {
+			if((now - lastScroll) > (minScrollTime * 3)) {
+				lastScroll = now;
+					if(delta < 0) {
+						next = active.next();
+							if (next.length) {
+								var time = setTimeout(function () {
+									$('html, body').animate({
+										scrollTop: next.offset().top
+									},400);
 
-					clearTimeout(time);
-				}, 150);
+									next.addClass('active')
+										.siblings().removeClass('active');
+										clearTimeout(time);
+
+									}, 500);
+
+								}
+					} else if (delta > 0) {
+						prev = active.prev();
+							if (prev.length) {
+								var time = setTimeout(function () {
+									$('html, body').animate({
+										scrollTop: prev.offset().top
+									},400);
+
+									prev.addClass('active')
+									.siblings().removeClass('active');
+									clearTimeout(time);
+
+									}, 500);
+								}
+							}
+						}
+			scrollTimer = setTimeout(function() {
+			scrollTimer = null;
+			lastScroll = new Date().getTime();
+			}, minScrollTime);
+
 			}
-		}
 	});
 });
