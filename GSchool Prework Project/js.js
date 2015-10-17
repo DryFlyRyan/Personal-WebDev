@@ -8,13 +8,15 @@ $(document).ready(function() {
 	});*/
 window.setTimeout('fadedOut();', 50);
 
-
-
-	$('next').on('click', function () {
-		$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
-	})
+	//
+	//
+	// $('next').on('click', function () {
+	// 	$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
+	// })
 
 	// NAVIGATION AND NAVICON STYLING AND ANIMATIONS
+
+	// NAVICON STYLING AND ANIMATION
 
 $('.nav-icon')
 	.on('click', function () {
@@ -31,6 +33,8 @@ $('.nav-icon')
 		$(this).removeClass('nav-icon-hover');
 	})
 
+ // NAV SUBLIST POPOUT
+
 $('#map-icon').on('click', function () {
 	$('.bottom-list-past').slideToggle(200);
 })
@@ -39,6 +43,8 @@ $('#map-icon').on('click', function () {
 $('#road-icon').on('click', function () {
 	$('.bottom-list-future').slideToggle(200);
 })
+
+// LINK SCROLLING
 
 $('a[href^="#"]').on('click', function (e) {
 	e.preventDefault();
@@ -97,41 +103,40 @@ $('.page-button').on('click', function () {
 
 // SCROLLING ANIMATION
 
-	$(document).bind('mousewheel DOMMouseScroll', function (event) {
-		event.preventDefault(); // This works
-		var active = $('section.active');
-		var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
-		/*alert(event.originalEvent.weelDelta);*/
-		if(delta < 0) {
-			next = active.next();
-			if (next.length) {
-				active.find('background-container').removeClass('grayscale-blur')
-							.siblings().find('background-container').removeClass('grayscale-blur');
-				var time = setTimeout(function () {
-					$('html, body').animate({
-						scrollTop: next.offset().top
-					}, 400);
-				next.addClass('active')
-					.siblings().removeClass('active');
-					clearTimeout(time);
-				}, 150);
-			}
-		} else if (delta > 0) {
-			prev = active.prev();
-			if (prev.length) {
-				active.find('background-container').removeClass('grayscale-blur')
-							.siblings().find('background-container').removeClass('grayscale-blur');
-				var time = setTimeout(function () {
-					$('html, body').animate({
-						scrollTop: prev.offset().top
-					}, 400);
-
-				prev.addClass('active')
-					.siblings().removeClass('active');
-
-					clearTimeout(time);
-				}, 150);
-			}
-		}
-	});
+	// $(document).bind('mousewheel DOMMouseScroll', function (event) {
+	// 	event.preventDefault();
+	// 	var active = $('section.active');
+	// 	var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
+	// 	if(delta < 0) {
+	// 		next = active.next();
+	// 		if (next.length) {
+	//
+	// 			$('html, body').animate({
+	// 				scrollTop: next.offset().top
+	// 			},{
+	// 				queue: false;
+	// 				duration: 500;
+	// 				complete: function () {
+	// 					next.addClass('active')
+	// 						.siblings().removeClass('active');
+	// 				}
+	// 			});
+	// 		}
+	// 	} else if (delta > 0) {
+	// 		prev = active.prev();
+	// 			if (prev.length) {
+	//
+	// 			$('html, body').animate({
+	// 				scrollTop: next.offset().top
+	// 			},{
+	// 				queue: false;
+	// 				duration: 500;
+	// 				complete: function () {
+	// 					next.addClass('active')
+	// 						.siblings().removeClass('active');
+	// 					}
+	// 				});
+	// 			}
+	// 		}
+	// 	})
 });
