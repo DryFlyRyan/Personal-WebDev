@@ -1,43 +1,25 @@
+function fadedOut() {
+	$('.hidden-start').fadeOut(50);
+};
+
 $(document).ready(function() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	/*$(window).each(function () {
-		alert("Hello World!");
-	});*/
->>>>>>> parent of 94bd2e1... 10/16 Summary
-
-// FADEOUT HIDDEN ELEMENTS
-window.setTimeout('fadedOut();', 50);
-
-<<<<<<< HEAD
-=======
 	/*$(window).each(function () {
 		alert("Hello World!");
 	});*/
 window.setTimeout('fadedOut();', 50);
 
-<<<<<<< HEAD
-	//
-	//
-=======
->>>>>>> reverted-testing-branch
+
+
 	// $('next').on('click', function () {
 	// 	$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
 	// })
 
->>>>>>> parent of cac2a0c... Merge Branch
 	// NAVIGATION AND NAVICON STYLING AND ANIMATIONS
 
-	// NAVICON STYLING AND ANIMATION
-
-=======
->>>>>>> parent of 94bd2e1... 10/16 Summary
 $('.nav-icon')
 	.on('click', function () {
 		$(this).toggleClass('nav-icon-clicked');
 		$('.navbar').toggleClass('navbar-shown');
-		// $('.background-container').toggleClass('grayscale-blur');
 		$(this).removeClass('nav-icon-hover');
 	})
 	.on('mouseenter', function () {
@@ -49,8 +31,6 @@ $('.nav-icon')
 		$(this).removeClass('nav-icon-hover');
 	})
 
- // NAV SUBLIST POPOUT
-
 $('#map-icon').on('click', function () {
 	$('.bottom-list-past').slideToggle(200);
 })
@@ -59,8 +39,6 @@ $('#map-icon').on('click', function () {
 $('#road-icon').on('click', function () {
 	$('.bottom-list-future').slideToggle(200);
 })
-
-// LINK SCROLLING
 
 $('a[href^="#"]').on('click', function (e) {
 	e.preventDefault();
@@ -75,15 +53,29 @@ $('a[href^="#"]').on('click', function (e) {
 	});
 });
 
-	// GRAYSCALE ON HOVER
+	// GRAYSCALE ON HOVER + BUTTON STYLING AND FADES
 
-	$('.anchor-button').hover(function () {
-		$('a').closest('section').find('.background-container').addClass('grayscale-blur');
-	}, function () {
-		$('a').closest('section').find('.background-container').removeClass('grayscale-blur');
+	$('.page-button').hover(function () {
+		if ($(this).hasClass('faded') === false) {
+			$('a').closest('section').find('.background-container').toggleClass('grayscale-blur');
+		}
+		var icon = $(this).find('i');
+		if ($(this).is('#home-button')) {
+			icon.toggleClass('button-chocolate');
+		} else if ($(this).is('#binoculars-button')) {
+			icon.toggleClass('button-red');
+		} else if ($(this).is('#paw-button')) {
+			icon.toggleClass('button-gold');
+		} else if ($(this).is('#tree-button')) {
+			icon.toggleClass('button-green');
+		} else if ($(this).is('#twitter, #linkedin')) {
+			icon.toggleClass('button-blue');
+		} else if ($(this).is('#github')) {
+			$(this).toggleClass('contact-button-white');
+			icon.toggleClass('github-transition');
+		}
 	});
 
-<<<<<<< HEAD
 $('.page-button').on('click', function () {
 	$('a').closest('section').find('background-container').addClass('grayscale-blur');
 	$(this).animate( 400, function () {
@@ -100,18 +92,6 @@ $('.page-button').on('click', function () {
 	})
 })
 
-<<<<<<< HEAD
-// THINGS ARE WORKING OP TO THIS POINT
-=======
-	$('section').height($(window).height());
-	$('section').first().addClass('active');
->>>>>>> parent of 94bd2e1... 10/16 Summary
-
-	/*$(window).closest('section').addClass('active').siblings().removeClass('active');*/
-
-<<<<<<< HEAD
-=======
->>>>>>> parent of cac2a0c... Merge Branch
 	$('section').height($(window).height());
 	$('section').first().addClass('active');
 
@@ -125,119 +105,6 @@ $('.page-button').on('click', function () {
 		var minScrollTime = 100;
 		var now = new Date().getTime();
 
-<<<<<<< HEAD
-	// $(document).bind('mousewheel DOMMouseScroll', function (event) {
-	// 	event.preventDefault();
-	// 	var active = $('section.active');
-	// 	var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
-	// 	if(delta < 0) {
-	// 		next = active.next();
-	// 		if (next.length) {
-	//
-	// 			$('html, body').animate({
-	// 				scrollTop: next.offset().top
-	// 			},{
-	// 				queue: false;
-	// 				duration: 500;
-	// 				complete: function () {
-	// 					next.addClass('active')
-	// 						.siblings().removeClass('active');
-	// 				}
-	// 			});
-	// 		}
-	// 	} else if (delta > 0) {
-	// 		prev = active.prev();
-	// 			if (prev.length) {
-	//
-	// 			$('html, body').animate({
-	// 				scrollTop: next.offset().top
-	// 			},{
-	// 				queue: false;
-	// 				duration: 500;
-	// 				complete: function () {
-	// 					next.addClass('active')
-	// 						.siblings().removeClass('active');
-	// 					}
-	// 				});
-	// 			}
-	// 		}
-	// 	})
-<<<<<<< HEAD
-
-		$(document).bind('mousewheel DOMMouseScroll', function (event) {
-			event.preventDefault(); // This works
-			var active = $('section.active');
-			var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
-			/*alert(event.originalEvent.weelDelta);*/
-			if(delta < 0) {
-				next = active.next();
-				if (next.length) {
-					active.find('background-container').removeClass('grayscale-blur')
-								.siblings().find('background-container').removeClass('grayscale-blur');
-					var time = setTimeout(function () {
-						$('html, body').animate({
-							scrollTop: next.offset().top
-						}, 400);
-					next.addClass('active')
-						.siblings().removeClass('active');
-						clearTimeout(time);
-					}, 150);
-				}
-			} else if (delta > 0) {
-				prev = active.prev();
-				if (prev.length) {
-					active.find('background-container').removeClass('grayscale-blur')
-								.siblings().find('background-container').removeClass('grayscale-blur');
-					var time = setTimeout(function () {
-						$('html, body').animate({
-							scrollTop: prev.offset().top
-						}, 400);
-
-					prev.addClass('active')
-						.siblings().removeClass('active');
-
-						clearTimeout(time);
-					}, 150);
-				}
-=======
-	$(document).bind('mousewheel DOMMouseScroll', function (event) {
-		event.preventDefault(); // This works
-		var active = $('section.active');
-		var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
-		/*alert(event.originalEvent.weelDelta);*/
-		if(delta < 0) {
-			next = active.next();
-			if (next.length) {
-				var time = setTimeout(function () {
-					$('html, body').animate({
-						scrollTop: next.offset().top
-					}, 400);
-				next.addClass('active')
-					.siblings().removeClass('active');
-					clearTimeout(time);
-				}, 150);
-			}
-		} else if (delta > 0) {
-			prev = active.prev();
-			if (prev.length) {
-				var time = setTimeout(function () {
-					$('html, body').animate({
-						scrollTop: prev.offset().top
-					}, 400);
-
-				prev.addClass('active')
-					.siblings().removeClass('active');
-
-					clearTimeout(time);
-				}, 150);
->>>>>>> parent of 94bd2e1... 10/16 Summary
-			}
-		});
-
-
-=======
->>>>>>> parent of cac2a0c... Merge Branch
-=======
 		var active = $('section.active');
 		var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
 
@@ -246,19 +113,18 @@ $('.page-button').on('click', function () {
 				lastScroll = now;
 					if(delta < 0) {
 						next = active.next();
-							if (next.length) {
-								var time = setTimeout(function () {
-									$('html, body').animate({
-										scrollTop: next.offset().top
-									},400);
+						if (next.length) {
+							var time = setTimeout(function () {
+								$('html, body').animate({
+									scrollTop: next.offset().top
+								},1000);
 
-									next.addClass('active')
+								next.addClass('active')
 										.siblings().removeClass('active');
-										clearTimeout(time);
+								clearTimeout(time);
+							}, 1000);
 
-									}, 500);
-
-								}
+							}
 					} else if (delta > 0) {
 						prev = active.prev();
 							if (prev.length) {
@@ -282,5 +148,4 @@ $('.page-button').on('click', function () {
 
 			}
 	});
->>>>>>> reverted-testing-branch
 });
