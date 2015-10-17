@@ -120,7 +120,7 @@ $('.page-button').on('click', function () {
 									},400);
 
 									next.addClass('active')
-										.siblings().removeClass('active');
+										.siblings().removeClass('active'); 
 										clearTimeout(time);
 
 									}, 500);
