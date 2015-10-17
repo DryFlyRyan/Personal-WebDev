@@ -1,5 +1,6 @@
 $(document).ready(function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	/*$(window).each(function () {
 		alert("Hello World!");
@@ -10,6 +11,19 @@ $(document).ready(function() {
 window.setTimeout('fadedOut();', 50);
 
 <<<<<<< HEAD
+=======
+	/*$(window).each(function () {
+		alert("Hello World!");
+	});*/
+window.setTimeout('fadedOut();', 50);
+
+	//
+	//
+	// $('next').on('click', function () {
+	// 	$('html, body').animate({scrollTop:(this).parent().next().offset().top}, 'slow');
+	// })
+
+>>>>>>> parent of cac2a0c... Merge Branch
 	// NAVIGATION AND NAVICON STYLING AND ANIMATIONS
 
 	// NAVICON STYLING AND ANIMATION
@@ -37,6 +51,7 @@ $('.nav-icon')
 $('#map-icon').on('click', function () {
 	$('.bottom-list-past').slideToggle(200);
 })
+
 
 $('#road-icon').on('click', function () {
 	$('.bottom-list-future').slideToggle(200);
@@ -77,11 +92,12 @@ $('.page-button').on('click', function () {
 
 	})
 // THIS IS BEING TROUBLESOME
-	// $(this).promise().done(function() {
-	// 	$(this).addClass('faded');
-	//})
+	$(this).promise().done(function() {
+		$(this).addClass('faded');
+	})
 })
 
+<<<<<<< HEAD
 // THINGS ARE WORKING OP TO THIS POINT
 =======
 	$('section').height($(window).height());
@@ -91,10 +107,14 @@ $('.page-button').on('click', function () {
 	/*$(window).closest('section').addClass('active').siblings().removeClass('active');*/
 
 <<<<<<< HEAD
+=======
+>>>>>>> parent of cac2a0c... Merge Branch
 	$('section').height($(window).height());
 	$('section').first().addClass('active');
 
-	// $(document).on('mousewheel DOMMouseScroll', function (event) {
+// SCROLLING ANIMATION
+
+	// $(document).bind('mousewheel DOMMouseScroll', function (event) {
 	// 	event.preventDefault();
 	// 	var active = $('section.active');
 	// 	var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
@@ -105,7 +125,7 @@ $('.page-button').on('click', function () {
 	// 			$('html, body').animate({
 	// 				scrollTop: next.offset().top
 	// 			},{
-	// 				queue: 1;
+	// 				queue: false;
 	// 				duration: 500;
 	// 				complete: function () {
 	// 					next.addClass('active')
@@ -130,6 +150,7 @@ $('.page-button').on('click', function () {
 	// 			}
 	// 		}
 	// 	})
+<<<<<<< HEAD
 
 		$(document).bind('mousewheel DOMMouseScroll', function (event) {
 			event.preventDefault(); // This works
@@ -202,4 +223,6 @@ $('.page-button').on('click', function () {
 		});
 
 
+=======
+>>>>>>> parent of cac2a0c... Merge Branch
 });
