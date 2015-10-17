@@ -21,15 +21,6 @@ body, html {
 	background-color: black;
 }
 
-body:after {
-	display: none;
-	content: url(Images/BirdsResizeNonRetina.jpg)
-					 url(images/COFallResizeNonRetina.jpg)
-					 url(images/DogResizeNonRetina.jpg)
-					 url(images/MontanaResizeNonRetina.jpg)
-					 url(images/PortlandResizeNonRetina.jpg);
-}
-
 /* FLEXBOX */
 .flex-shell {
 	display: -webkit-box;
@@ -90,10 +81,17 @@ body:after {
 	color: white;
 }
 
-.hidden-nav {
+.hidden {
 	display:none;
 }
 
+.shown {
+	-ms-transition:  all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
 
 /*FIXED CLASSES*/
 
@@ -129,6 +127,7 @@ body:after {
 	width: 90%;
 }
 
+
 .content-container {
 	position: absolute;
 	height: 100%;
@@ -136,7 +135,31 @@ body:after {
 	z-index: 999;
 }
 
+.anchor-button {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	font-size: 2em;
+	padding: 5px;
+	border-radius: 15px;
+	text-decoration: none;
+
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-content: center;
+	align-items: center;
+
+	flex-grow: 0;
+	flex-shrink: 0;
+	border: 2px solid white;
+}
+
+.anchor-button h1 {
+	color: white;
+	text-align: center;
+}
+
 /* ADDED CLASSES */
+
 
 .grayscale-blur {
 	opacity: 0.3;
@@ -149,111 +172,35 @@ body:after {
 	filter: blur(3px) grayscale(60%);
 }
 
+
 /* SECTION SPECIFIC STYLING */
 
 #home-bg {
-	background: black url(Images/PortlandResizeNonRetina.jpg) no-repeat center;
+	background: black url(Images/PortlandOrigColor.jpg) no-repeat center;
 	background-size: 100%;
+
+
 }
 
 #missoula-bg {
-	background: black  url(Images/MontanaResizeNonRetina.jpg) no-repeat center;
+	background: black  url(Images/MontanaOrigColor.jpg) no-repeat center;
 	background-size: 100%;
 }
 
 #dogs-bg {
-	background: black  url(Images/DogResizeNonRetina.jpg) no-repeat center;
+	background: black  url(Images/DogOrigColor.jpg) no-repeat center;
 	background-size: 100%;
 }
 
 #outdoors-bg {
-	background: black  url(Images/COFallResizeNonRetina.jpg) no-repeat center;
+	background: black  url(Images/COFallOrigColor.jpg) no-repeat center;
 	background-size: 100%;
 }
 
 #contact-bg {
-	background: black  url(Images/BirdsResizeNonRetina.jpg) no-repeat center;
+	background: black  url(Images/BirdsOrigColor.jpg) no-repeat center;
 	background-size: 100%;
 }
-
- .page-button {
-	padding: 1.8%;
-	margin: 2%;
-
-	background: rgba(0, 0, 0, 0.9);
-	border: 5px solid white;
-	border-radius: 50%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
- }
-
- .contact-button-white {
-	 background: rgba(255, 255, 255, 0.5) !important;
-	 border: 5px solid black !important;
-	 -ms-transition:  all 0.2s ease;
-	 -webkit-transition: all 0.2s ease;
-	 -moz-transition: all 0.2s ease;
-	 -o-transition: all 0.2s ease;
-	 transition: all 0.2s ease;
- }
-
-.github-transition {
-	color: black !important;
-	-ms-transition:  all 0.25s ease;
-	-webkit-transition: all 0.25s ease;
-	-moz-transition: all 0.25s ease;
-	-o-transition: all 0.25s ease;
-	transition: all 0.25s ease;
-}
-
- .dummy-button {
-
- }
-
-.page-button a i {
-	font-size: 60px;
-	text-decoration: none;
-	color: white;
-}
-
-.button-blue {
-	color: blue !important;
-}
-
-.button-chocolate {
-	color: chocolate !important;
-}
-
-.button-green {
-	color: green !important;
-}
-
-.button-red {
-	color: red !important;
-}
-
-.button-gold {
-	color: gold !important;
-}
-
-.hidden-button {
-	height:0;
-	width: 0;
-	overflow: none;
-}
-
-.faded {
-
-}
-
-.hidden-start {
-
-}
-
 
 //
 /* NAVBAR CLASSING */
@@ -354,15 +301,6 @@ body:after {
 	flex-grow: 5;
 	margin-top: 10%;
 	margin-bottom: 0%;
-}
-
-#map-icon:hover, #road-icon:hover {
-	color: blue;
-	-ms-transition:  all 0.2s ease;
-	-webkit-transition: all 0.2s ease;
-	-moz-transition: all 0.2s ease;
-	-o-transition: all 0.2s ease;
-	transition: all 0.2s ease;
 }
 
 #past-menu {

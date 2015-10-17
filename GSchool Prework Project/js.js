@@ -1,20 +1,26 @@
-function fadedOut() {
-	$('.hidden-start').fadeOut(50);
-};
-
 $(document).ready(function() {
+<<<<<<< HEAD
+=======
+	/*$(window).each(function () {
+		alert("Hello World!");
+	});*/
+>>>>>>> parent of 94bd2e1... 10/16 Summary
 
 // FADEOUT HIDDEN ELEMENTS
 window.setTimeout('fadedOut();', 50);
 
+<<<<<<< HEAD
 	// NAVIGATION AND NAVICON STYLING AND ANIMATIONS
 
 	// NAVICON STYLING AND ANIMATION
 
+=======
+>>>>>>> parent of 94bd2e1... 10/16 Summary
 $('.nav-icon')
 	.on('click', function () {
 		$(this).toggleClass('nav-icon-clicked');
 		$('.navbar').toggleClass('navbar-shown');
+		// $('.background-container').toggleClass('grayscale-blur');
 		$(this).removeClass('nav-icon-hover');
 	})
 	.on('mouseenter', function () {
@@ -51,29 +57,15 @@ $('a[href^="#"]').on('click', function (e) {
 	});
 });
 
-	// GRAYSCALE ON HOVER + BUTTON STYLING AND FADES
+	// GRAYSCALE ON HOVER
 
-	$('.page-button').hover(function () {
-		if ($(this).hasClass('faded') === false) {
-			$('a').closest('section').find('.background-container').toggleClass('grayscale-blur');
-		}
-		var icon = $(this).find('i');
-		if ($(this).is('#home-button')) {
-			icon.toggleClass('button-chocolate');
-		} else if ($(this).is('#binoculars-button')) {
-			icon.toggleClass('button-red');
-		} else if ($(this).is('#paw-button')) {
-			icon.toggleClass('button-gold');
-		} else if ($(this).is('#tree-button')) {
-			icon.toggleClass('button-green');
-		} else if ($(this).is('#twitter, #linkedin')) {
-			icon.toggleClass('button-blue');
-		} else if ($(this).is('#github')) {
-			$(this).toggleClass('contact-button-white');
-			icon.toggleClass('github-transition');
-		}
+	$('.anchor-button').hover(function () {
+		$('a').closest('section').find('.background-container').addClass('grayscale-blur');
+	}, function () {
+		$('a').closest('section').find('.background-container').removeClass('grayscale-blur');
 	});
 
+<<<<<<< HEAD
 $('.page-button').on('click', function () {
 	$('a').closest('section').find('background-container').addClass('grayscale-blur');
 	$(this).animate( 400, function () {
@@ -91,9 +83,14 @@ $('.page-button').on('click', function () {
 })
 
 // THINGS ARE WORKING OP TO THIS POINT
+=======
+	$('section').height($(window).height());
+	$('section').first().addClass('active');
+>>>>>>> parent of 94bd2e1... 10/16 Summary
 
-// SCROLLING ANIMATION
+	/*$(window).closest('section').addClass('active').siblings().removeClass('active');*/
 
+<<<<<<< HEAD
 	$('section').height($(window).height());
 	$('section').first().addClass('active');
 
@@ -169,6 +166,38 @@ $('.page-button').on('click', function () {
 						clearTimeout(time);
 					}, 150);
 				}
+=======
+	$(document).bind('mousewheel DOMMouseScroll', function (event) {
+		event.preventDefault(); // This works
+		var active = $('section.active');
+		var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
+		/*alert(event.originalEvent.weelDelta);*/
+		if(delta < 0) {
+			next = active.next();
+			if (next.length) {
+				var time = setTimeout(function () {
+					$('html, body').animate({
+						scrollTop: next.offset().top
+					}, 400);
+				next.addClass('active')
+					.siblings().removeClass('active');
+					clearTimeout(time);
+				}, 150);
+			}
+		} else if (delta > 0) {
+			prev = active.prev();
+			if (prev.length) {
+				var time = setTimeout(function () {
+					$('html, body').animate({
+						scrollTop: prev.offset().top
+					}, 400);
+
+				prev.addClass('active')
+					.siblings().removeClass('active');
+
+					clearTimeout(time);
+				}, 150);
+>>>>>>> parent of 94bd2e1... 10/16 Summary
 			}
 		});
 
