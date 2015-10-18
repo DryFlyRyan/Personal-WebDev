@@ -126,6 +126,7 @@ var lastScrollFireTime = 0;
 		var now = new Date().getTime();
 		var active = $('section.active');
 		var delta = event.originalEvent.detail < 0 || event.originalEvent.wheelDelta > 0 ? 1 : -1;
+		if (scrollTimer === null) {
 			if ((now - lastScrollFireTime) > (3 * minScrollTime)) {
 					if(delta < 0) {
 						next = active.next();
@@ -133,9 +134,11 @@ var lastScrollFireTime = 0;
 								$('html, body').animate({
 									scrollTop: next.offset().top
 								},500, function () {
-										next.addClass('active')
-											.siblings().removeClass('active');
+
 										});
+										next.addClass('active')
+												.siblings().removeClass('active');
+								}
 							}
 						} else if (delta > 0) {
 							prev = active.prev();
@@ -143,17 +146,21 @@ var lastScrollFireTime = 0;
 									$('html, body').animate({
 										scrollTop: prev.offset().top
 									}, 500, function () {
+
+									});
 									prev.addClass('active')
 										.siblings().removeClass('active');
-									});
 								}
+								lastScrollFireTime = now;
 							}
-							lastScrollFireTime = now;
+
+							scrollTimer = setTimeout(function() {
+								scrollTimer = null;
+								lastScrollFireTime = new Date().getTime();
+							}, minScrollTime);
 					}
-			// 		scrollTimer = setTimeout(function() {
-			// 			scrollTimer = null;
-			// 			lastScrollFireTime = new Date().getTime();
-			// }, minScrollTime);
+
 		});
+
 alert('end');
 });
