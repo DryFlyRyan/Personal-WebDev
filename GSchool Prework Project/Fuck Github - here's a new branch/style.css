@@ -21,14 +21,14 @@ body, html {
 	background-color: black;
 }
 
-body:after {
+/*body:after {
 	display: none;
 	content: url(Images/BirdsResizeNonRetina.jpg)
 					 url(images/COFallResizeNonRetina.jpg)
 					 url(images/DogResizeNonRetina.jpg)
 					 url(images/MontanaResizeNonRetina.jpg)
 					 url(images/PortlandResizeNonRetina.jpg);
-}
+}*/
 
 /* FLEXBOX */
 .flex-shell {
@@ -51,6 +51,7 @@ body:after {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	height: 100%;
 
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -69,37 +70,6 @@ body:after {
 
 .navbar ul li {
 	margin-top: 20%;
-}
-.top-list {
-
-	-ms-transition:  all 0.2s ease;
- 	-webkit-transition: all 0.2s ease;
- 	-moz-transition: all 0.2s ease;
- 	-o-transition: all 0.2s ease;
- 	transition: all 0.2s ease;
-}
-
-
-.bottom-list-past,
-.bottom-list-future {
-	flex-basis: 0;
-	margin: 0;
-	padding: 0;
-	-ms-transition:  all 0.2s ease;
-	-webkit-transition: all 0.2s ease;
-	-moz-transition: all 0.2s ease;
-	-o-transition: all 0.2s ease;
-	transition: all 0.2s ease;
-}
-
-.bottom-list-past a,
-.bottom-list-future a {
-	text-decoration: none;
-	color: white;
-}
-
-.hidden-nav {
-	display:none;
 }
 
 
@@ -121,20 +91,11 @@ body:after {
 	width: 100%;
 	position: absolute;
 	z-index: 1;
-	/*-webkit-filter: blur(3px);
-	-moz-filter: blur(3px);
-	-o-filter: blur(3px);
-	-ms-filter: blur(3px);
-	filter: blur(3px);*/
 	-webkit-transition: all 0.2s ease;
 	-moz-transition: all 0.2s ease;
 	-o-transition: all 0.2s ease;
 	-ms-transition: all 0.2s ease;
 	transition: all 0.2s ease;
-}
-
-.background-navbar {
-	width: 90%;
 }
 
 .content-container {
@@ -183,6 +144,30 @@ body:after {
 	background: black  url(Images/BirdsResizeNonRetina.jpg) no-repeat center;
 	background-size: 100%;
 }
+
+#colorado-bg {
+	background: black  url(Images/UnionResizeNonRetina.jpg) no-repeat center;
+	background-size: 100%;
+}
+
+#galvanize-bg {
+	background: black  url(Images/GalvanizeNR.jpg) no-repeat center;
+	background-size: 100%;
+}
+
+#career-bg {
+	background: black  url(Images/DenverSkylineNR.jpg) no-repeat center;
+	background-size: 100%;
+}
+
+#future-bg {
+	background: black  url(Images/MountainSunsetOrigColor.jpg) no-repeat center;
+	background-size: 100%;
+}
+
+
+
+
  .sub-button,
  .page-button {
 	padding: 1.8%;
@@ -190,7 +175,7 @@ body:after {
 
 	background: rgba(0, 0, 0, 0.9);
 	border: 5px solid white;
-	border-radius: 50%;
+	border-radius: 100%;
 	display: flex;
 
 	flex-wrap: wrap;
@@ -248,10 +233,23 @@ body:after {
 	color: gold !important;
 }
 
+.button-peru {
+	color: peru !important;
+}
+
+.button-gray {
+	color: lightslategray !important;
+}
+
+.button-orangered {
+	color: orangered !important;
+}
+
 .hidden-button {
 	height:0;
 	width: 0;
 	overflow: none;
+	visibility: hidden;
 }
 
 .faded {
@@ -285,6 +283,11 @@ body:after {
 	margin: 2%;
 }
 
+.content-link {
+
+	color: white;
+}
+
 .clicked-icon {
 	margin-bottom: 5%;
 }
@@ -315,14 +318,14 @@ body:after {
 .nav-icon-container {
 	position: fixed;
 	width: 100px;
-	z-index: 9999;
+	z-index: 99999;
 }
 .nav-icon {
 	position: fixed;
 	top: 25px;
 	right: 25px;
 	width: 40px;
-	z-index: 9999;
+	z-index: 99999;
 }
 
 .nav-icon:after,
@@ -396,6 +399,48 @@ body:after {
 	opacity: 0.8;
 }
 
+
+.top-list {
+	height: 20%;
+	-ms-transition:  all 0.2s ease;
+ 	-webkit-transition: all 0.2s ease;
+ 	-moz-transition: all 0.2s ease;
+ 	-o-transition: all 0.2s ease;
+ 	transition: all 0.2s ease;
+}
+
+.bottom-list-past,
+.bottom-list-future {
+	flex-basis: 0;
+	margin-top: 8% !important;
+	padding: 0 !important;
+	-ms-transition:  all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+.bottom-list-past a,
+.bottom-list-future a {
+	text-decoration: none;
+	color: white;
+}
+
+.bottom-list-past a:hover,
+.bottom-list-future a:hover {
+	color: blue;
+}
+
+.no-highlight {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 /* ------------------------------------- */
 
 
@@ -404,7 +449,6 @@ body:after {
 #map-icon,
 #road-icon {
 	font-size: 100pt;
-	flex-grow: 5;
 	margin-top: 10%;
 	margin-bottom: 0%;
 }
@@ -425,14 +469,4 @@ body:after {
 
 #past-menu ul li {
 	font-size: 16pt;
-}
-
-
-
-footer {
-	position: fixed;
-	display: block;
-	width: 100%;
-	bottom: 0px;
-	text-align: center;
 }
